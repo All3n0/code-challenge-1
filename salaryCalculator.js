@@ -23,10 +23,10 @@ function Taxes(){
     let NSSF=getNSSFamount();
         console.log('NSSF',NSSF);
     //Here we assign the variable taxes with the value of the sum of the NHIF and PAYE deductions.
-    let taxes=PAYE+NHIF;
+    let taxes=PAYE+NHIF+NSSF;
         console.log('Total Taxes',taxes);
     //Here we get the net salary by subtracting the total value of taxes from the gross Salary.
-    let netSalary=basicSalary-taxes;
+    let netSalary=grossSalry-taxes;
         console.log('Net Salary',netSalary);
 }
 //In this function we get the PAYE amount depending on the gross salary earned.
@@ -85,9 +85,9 @@ function getNHIFAmount(){
 //Here we conclude the NSSF tier based on the user input. 
 function getNSSFamount(){
     if(tier==='1'){
-        return 'Tier 1';
+        return 360;
     }else if(tier==='2'){
-        return 'Tier 2';
+        return 720;
     }else{
         return 'Invalid Entry.'
     }
